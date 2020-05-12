@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <gazebo reference="l_wheel">
+        <mu value="200.0"/>
+        <mu2 value="200.0"/>
+        <kp value="10000000.0" />
+        <kd value="1.0" />
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="r_wheel">
+        <mu value="200.0"/>
+        <mu2 value="200.0"/>
+        <kp value="10000000.0" />
+        <kd value="1.0" />
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="l_rear_caster_wheel">
+        <mu value="1"/>
+        <mu2 value="1"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="r_rear_caster_wheel">
+        <mu value="1"/>
+        <mu2 value="1"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="l_front_caster_wheel">
+        <mu value="1"/>
+        <mu2 value="1"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo reference="r_front_caster_wheel">
+        <mu value="1"/>
+        <mu2 value="1"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <minDepth>0.01</minDepth>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace></robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <controlPeriod>0.001</controlPeriod>
+            <legacyModeNS>false</legacyModeNS>
+        </plugin>
+    </gazebo>
+</robot>
