@@ -55,6 +55,7 @@
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
             <controlPeriod>0.001</controlPeriod>
             <legacyModeNS>false</legacyModeNS>
+            <eStopTopic>emergency_stop</eStopTopic>
         </plugin>
     </gazebo>
     <!-- <gazebo>

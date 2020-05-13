@@ -2,7 +2,7 @@
     <env name="QT_AUTO_SCREEN_SCALE_FACTOR" value="0"/>
     <env name="GAZEBO_RESOURCE_PATH" value="$(find bogie_mobile_robot_gazebo)"/>
 
-    <rosparam file="$(find bogie_mobile_robot_gazebo)/config/gazebo_pid_gains.yaml" command="load"/>
+    <!-- <rosparam file="$(find bogie_mobile_robot_gazebo)/config/gazebo_pid_gains.yaml" command="load"/> -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="use_sim_time" value="true" />
         <arg name="verbose" value="true"/>

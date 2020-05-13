@@ -26,9 +26,9 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="100.0"/>
+            <mass value="60.0"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <xacro:box_inertia m="100.0" x="1.0" y="0.55" z="0.20"/>
+            <xacro:box_inertia m="60.0" x="1.0" y="0.55" z="0.20"/>
         </inertial>
     </link>
 
@@ -53,18 +53,19 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="2.0"/>
+                <mass value="1.0"/>
                 <origin xyz="0 ${-dir*0.01} 0" rpy="${pi/2} 0 0"/>
-                <xacro:cylinder_inertia m="2.0" r="0.03" h="0.08"/>
+                <!-- <xacro:cylinder_inertia m="1.0" r="0.03" h="0.08"/> -->
+                <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
             </inertial>
         </link>
 
-        <joint name="${prefix}_bogie_suspension_joint" type="revolute">
+        <joint name="${prefix}_bogie_suspension_joint" type="continuous">
             <parent link="base_link"/>
             <child link="${prefix}_bogie_suspension"/>
             <origin xyz="-0.25 ${dir*0.36} 0" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit effort="1000" velocity="0.1" lower="${-pi}" upper="${pi}"/>
+            <!-- <limit effort="10" velocity="3.0" lower="${-pi}" upper="${pi}"/> -->
         </joint>
 
         <link name="${prefix}_wheel">
@@ -93,6 +94,7 @@
             <child link="${prefix}_wheel"/>
             <origin xyz="0.25 ${dir*0.01} -0.05" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
+            <limit effort="1000000" velocity="20.0"/>
         </joint>
         <xacro:insert_velocity_transmission name="${prefix}_wheel_joint"/>
 
@@ -110,9 +112,9 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="2.0"/>
+                <mass value="0.1"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-                <xacro:cylinder_inertia m="2.0" r="0.03" h="0.03"/>
+                <xacro:cylinder_inertia m="0.1" r="0.03" h="0.03"/>
             </inertial>
         </link>
 
@@ -137,9 +139,9 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="2.0"/>
+                <mass value="0.1"/>
                 <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-                <xacro:cylinder_inertia m="2.0" r="0.06" h="0.04"/>
+                <xacro:cylinder_inertia m="0.1" r="0.06" h="0.04"/>
             </inertial>
         </link>
 
@@ -148,6 +150,7 @@
             <child link="${prefix}_rear_caster_wheel"/>
             <origin xyz="-0.02 0 -0.09" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
+            <limit effort="1000000" velocity="20.0"/>
         </joint>
     </xacro:macro>
 
@@ -170,9 +173,9 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="2.0"/>
+                <mass value="0.1"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-                <xacro:cylinder_inertia m="2.0" r="0.03" h="0.03"/>
+                <xacro:cylinder_inertia m="0.1" r="0.03" h="0.03"/>
             </inertial>
         </link>
 
@@ -197,9 +200,9 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="2.0"/>
+                <mass value="0.1"/>
                 <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-                <xacro:cylinder_inertia m="2.0" r="0.06" h="0.04"/>
+                <xacro:cylinder_inertia m="0.1" r="0.06" h="0.04"/>
             </inertial>
         </link>
 
